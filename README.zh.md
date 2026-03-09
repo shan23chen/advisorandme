@@ -8,9 +8,39 @@
 
 本仓库提供一个用于评估 PhD 导师与实验室的 advisor-research skill。核心视角很简单：选导师很像选一家创业公司的 CEO。先看失败模式，而不是品牌光环。第一步是识别那些会严重伤害博士阶段的关键问题：资金不稳、毕业标准不清晰、文化有毒、去向不佳、署名规范差，或者实验室看起来很强但并不能把学生投入转化为高质量成果。
 
+## 安装为 CLI Skill
+
+克隆本仓库后，你已经拿到了完整的 skill 源码，因为仓库根目录本身就是一个有效的 skill 目录：
+- `SKILL.md` 包含核心 skill 指令（Claude Code 与其他兼容 CLI 使用）
+- `agents/openai.yaml` 包含可选的 Codex 界面元数据
+
+如果希望自动发现这个 skill，请执行：
+
+```bash
+./scripts/install_skill.sh
+```
+
+默认会同时安装到：
+- `~/.claude/skills/advisor-research`
+- `~/.codex/skills/advisor-research`
+
+常用选项：
+
+```bash
+./scripts/install_skill.sh --claude
+./scripts/install_skill.sh --codex
+./scripts/install_skill.sh --skills-dir ~/.your-cli/skills
+./scripts/install_skill.sh --copy
+./scripts/install_skill.sh --force
+```
+
+安装后，重启对应 CLI（或刷新 skills 列表），再用该 CLI 的技能调用语法调用 `advisor-research`。
+
 ## 仓库内容
 
 - `SKILL.md`：导师调研 skill 的完整说明。
+- `agents/openai.yaml`：可选的 Codex 界面元数据。
+- `scripts/install_skill.sh`：把本仓库安装到本地 CLI skill 目录（Claude Code、Codex、或自定义路径）。
 
 ## 这个 Skill 会产出什么
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Advisor Research"
+  short_description: "Research PhD advisors and lab fit"
+  default_prompt: "Use $advisor-research to evaluate this PhD advisor and produce a cited due-diligence dossier."

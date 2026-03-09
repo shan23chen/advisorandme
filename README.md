@@ -8,9 +8,39 @@ Advisor due diligence, not vibes-only.
 
 This repo hosts an advisor-research skill for evaluating PhD advisors and labs. The framing is simple: choosing an advisor is a lot like choosing a startup CEO. Start with the failure modes, not the branding. The first job is to identify the critical problems that can seriously damage a PhD: weak funding, unclear graduation standards, abusive culture, poor placement, bad authorship norms, or a lab that looks impressive from far away but does not actually convert student effort into strong outcomes.
 
+## Install As A CLI Skill
+
+Cloning this repo gives you the full skill source because the repository root is a valid skill folder:
+- `SKILL.md` contains the core skill instructions (used by Claude Code and other compatible CLIs)
+- `agents/openai.yaml` contains optional Codex UI metadata
+
+To make the skill auto-discoverable, install this repo into your local skill registry:
+
+```bash
+./scripts/install_skill.sh
+```
+
+By default this installs to both:
+- `~/.claude/skills/advisor-research`
+- `~/.codex/skills/advisor-research`
+
+Useful options:
+
+```bash
+./scripts/install_skill.sh --claude
+./scripts/install_skill.sh --codex
+./scripts/install_skill.sh --skills-dir ~/.your-cli/skills
+./scripts/install_skill.sh --copy
+./scripts/install_skill.sh --force
+```
+
+After installation, restart your CLI (or refresh its skill list), then invoke `advisor-research` using that CLI's skill syntax.
+
 ## Repo Contents
 
 - `SKILL.md` contains the advisor research skill.
+- `agents/openai.yaml` contains optional Codex UI metadata.
+- `scripts/install_skill.sh` installs this repo into local CLI skill registries (Claude Code, Codex, and custom paths).
 
 ## What the Skill Produces
 
