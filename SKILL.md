@@ -1,6 +1,6 @@
 # /advisor — PhD Advisor Due Diligence Skill
 
-> Deep-research an advisor like you're evaluating a startup CEO. Assess research vision, funding runway, lab execution, network strength, alumni outcomes, and mentorship style — then generate a polished, cited dossier with personalized questions, connection mapping, and outreach guidance.
+> Deep-research an advisor like you're evaluating a startup CEO. Start with the critical risks: funding failure, unclear graduation path, weak placement, unfair authorship, bad management, and unhealthy lab culture. Then assess research vision, execution, network strength, alumni outcomes, and mentorship style to generate a polished, cited dossier with personalized questions, connection mapping, and outreach guidance.
 
 ## Trigger
 User invokes `/advisor` or asks: "research this advisor", "help me choose an advisor", "look into Professor X".
@@ -160,24 +160,27 @@ Generate three sets:
 3. **Double-check questions** for high-uncertainty / high-impact claims
 
 #### Required advisor questions
-1. Vision: major unsolved problems + lab strategy
-2. First project + resources already in place
-3. Funding model + TA load
-4. Mentorship style + meeting cadence
-5. Internship policy
-6. Authorship policy
-7. Graduation milestones + typical timeline
-8. Career support across academia/industry/startup
+1. Major unsolved problems + why this lab is positioned to win
+2. First project + whether data/compute/equipment/collaborators are already in place
+3. Funding model + TA load + what happens if a grant ends
+4. Mentorship style + meeting cadence + draft-feedback turnaround time
+5. Authorship policy + first-author ownership rules
+6. What happens when a student is stuck or a project fails
+7. Graduation milestones + typical timeline + median recent time-to-degree if known
+8. Internship policy + support across academia/industry/startup
+9. Support for health/family/visa disruptions
 
 #### Required student/private questions
-1. Day-to-day reality
-2. Work-life pressure and boundaries
-3. Advisor behavior when projects fail
-4. Draft feedback speed
-5. Attrition/transfer history
-6. What they wish they knew before joining
-7. Job-placement support quality
+1. Day-to-day reality when nobody is performing for recruitment
+2. Work-life pressure and whether boundaries are respected
+3. Advisor behavior when projects fail or students struggle
+4. Draft feedback speed and decision-making speed
+5. Attrition/transfer history and what actually happened
+6. Whether students truly own projects and authorship
+7. Job-placement support quality across the student's likely goal
 8. Visa/immigration support (if relevant)
+9. What they wish they knew before joining
+10. The biggest underappreciated concern about the lab
 
 ### Phase 5: Outreach & Career Development Plan
 
@@ -204,19 +207,32 @@ Every factual claim must have inline citations `[1]`, `[2]`, etc., with full sou
 
 ### Required report sections
 1. Executive Summary + one-line verdict
-2. Academic Profile
-3. Lab Snapshot
-4. Alumni Outcomes & Graduation Windows
-5. **Verified Frontier Placement Table** (required for frontier-lab goals)
-6. Funding & Resources
-7. Public Presence, Collaborators, and Network Access
-8. Four-Dimension Risk/Fit Assessment
-9. Personalized Fit (Student ↔ Advisor)
-10. Connection Map (direct/adjacent/weak)
-11. Outreach Plan + prioritized contacts
-12. Questions to Ask (advisor / students / double-check)
-13. Research Gaps
-14. Sources
+2. Critical Problems First
+3. Strong Pros and Strong Cons
+4. Critical Suggestions
+5. Academic Profile
+6. Lab Snapshot
+7. Alumni Outcomes & Graduation Windows
+8. **Verified Frontier Placement Table** (required for frontier-lab goals)
+9. Funding & Resources
+10. Public Presence, Collaborators, and Network Access
+11. Four-Dimension Risk/Fit Assessment
+12. Personalized Fit (Student ↔ Advisor)
+13. Connection Map (direct/adjacent/weak)
+14. Outreach Plan + prioritized contacts
+15. Questions to Ask (advisor / students / double-check)
+16. Research Gaps
+17. Sources
+
+### Executive Summary requirements
+
+The Executive Summary must lead with the hard truths first, not the flattering context.
+
+- Start with the top 2-4 critical problems or uncertainties that could materially harm the student's outcome.
+- Then give the one-line verdict.
+- Then summarize the strongest pros and strongest cons.
+- Then give a short critical suggestions block with concrete next steps for verification or risk reduction.
+- Do not lead with prestige, citations, or topic fit if funding, culture, placement, or authorship risk is unresolved.
 
 ### Recommended tables
 - Active grants table

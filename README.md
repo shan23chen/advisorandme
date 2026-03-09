@@ -2,7 +2,7 @@
 
 Advisor due diligence, not vibes-only.
 
-This repo hosts an advisor-research skill for evaluating PhD advisors and labs. The framing is simple: choosing an advisor is a lot like choosing a startup CEO. You are evaluating research taste, funding runway, network strength, and management style, not just paper titles or prestige.
+This repo hosts an advisor-research skill for evaluating PhD advisors and labs. The framing is simple: choosing an advisor is a lot like choosing a startup CEO. Start with the failure modes, not the branding. The first job is to identify the critical problems that can seriously damage a PhD: weak funding, unclear graduation standards, abusive culture, poor placement, bad authorship norms, or a lab that looks impressive from far away but does not actually convert student effort into strong outcomes.
 
 ## Repo Contents
 
@@ -15,6 +15,48 @@ This repo hosts an advisor-research skill for evaluating PhD advisors and labs. 
 - Alumni and collaborator mapping.
 - A question bank for advisor conversations and private student backchannels.
 - A practical outreach plan.
+
+## Start Here: Critical Problems First
+
+Before you get impressed by prestige, ask these first:
+
+- Can this advisor reliably fund me to graduation?
+- Do students publish well and graduate on time?
+- Is the lab psychologically safe, or does it run on fear and overwork?
+- Are authorship and credit handled fairly?
+- Does the advisor actually help students reach the careers they want?
+- If things go badly, does the lab have a recovery path, or do students just disappear?
+
+If the answer to two or more of these is weak, that is the story. Everything else is secondary.
+
+## Strong Pros and Cons
+
+### Strong Pros
+
+- Strong funding, stable grants, and real contingency plans.
+- Clear student outcomes in academia, industry, or both.
+- A research agenda with real taste and enough infrastructure to execute.
+- Students can explain authorship, milestones, and meeting cadence without hesitation.
+- The advisor gives timely feedback and helps unblock stuck projects.
+- Students sound candid, respected, and broadly sane.
+
+### Strong Cons
+
+- Prestige without student outcomes.
+- Big promises but vague funding details.
+- Lots of papers, but unclear student ownership.
+- Lab members who are afraid to speak plainly.
+- Graduation timelines that drift without explanation.
+- An advisor who says they support industry or non-traditional paths, but alumni evidence says otherwise.
+
+## Critical Suggestions
+
+- Prioritize downside protection before upside. A safe, productive lab usually beats a famous chaotic one.
+- Separate advisor reputation from student outcomes. These are not the same variable.
+- Treat every vague answer as a signal. Good labs can usually explain how things work.
+- Ask current and former students the same question and compare the differences.
+- Optimize for optionality if you are uncertain about academia versus industry.
+- Do not ignore how you feel after conversations. Confusion, tension, or evasiveness usually means something.
 
 ## Core Criteria
 
@@ -68,27 +110,28 @@ This repo hosts an advisor-research skill for evaluating PhD advisors and labs. 
 
 ## Questions To Ask The Advisor
 
-- What do you think are the most important unsolved problems in this field over the next three to five years?
-- If I joined today, what project would I likely start on, and are the required data, compute, and collaborators already available?
-- How are students typically funded, and how much TA work is normal in practice?
-- How would you describe your mentorship style: more hands-on, more hands-off, or something in between?
-- How often do you meet one-on-one with students, and how quickly do you usually return paper drafts?
-- What is the lab's authorship policy on multi-student or student-postdoc projects?
-- What is your stance on industry internships, collaborations, and non-academic careers?
-- What does a normal graduation timeline look like, and what milestones matter most?
-- How do you support students when health, family, or visa issues disrupt progress?
+- What are the biggest unsolved problems you think this lab can realistically win on, and why?
+- If I joined now, what exact project would I start on, and are the required data, compute, equipment, and collaborators already in place?
+- How are students funded year by year, what can interrupt that funding, and what is the fallback plan if a grant ends?
+- What are the concrete graduation milestones, and what is the real median time to finish in your group?
+- How often do you meet students one-on-one, and what is your normal turnaround time on draft feedback?
+- How do you decide authorship and first-author ownership on shared projects?
+- What happens when a student's project is not working for several months?
+- What is your actual stance on industry internships, non-academic careers, startups, and students whose goals change?
+- How do you support students through health, family, visa, or other personal disruptions without derailing the degree?
 
 ## Questions To Ask Current Or Former Students
 
-- What is day-to-day life in the lab actually like?
-- Are weekends and vacations genuinely respected?
+- What is day-to-day life in the lab actually like when nobody is performing for visitors?
+- Are weekends, vacations, and sick time genuinely respected?
 - What happens when a project fails, stalls, or gets scooped?
-- Does the advisor provide useful concrete feedback, or mostly pressure?
-- How fast does the advisor review drafts in practice?
-- Has anyone quit, switched labs, or been pushed out? What happened?
-- How much does the advisor help with internships, jobs, and recommendation letters?
-- What do you wish you had known before joining?
-- Is there any concern you did not think about before joining that I should seriously consider now?
+- When students struggle, does the advisor help, ignore them, or turn up the pressure?
+- How fast does the advisor review drafts and make decisions in practice?
+- Has anyone quit, switched labs, or been pushed out? Why?
+- Do students usually feel they own their projects, or do postdocs and senior students dominate the good work?
+- How much does the advisor really help with internships, jobs, recommendation letters, and visa issues?
+- What do you wish you had understood before joining?
+- What concern feels minor from the outside but becomes serious once you are inside the lab?
 
 ## Common Red Flags
 
