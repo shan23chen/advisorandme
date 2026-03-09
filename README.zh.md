@@ -10,29 +10,27 @@
 
 ## 安装为 CLI Skill
 
-克隆本仓库后，你已经拿到了完整的 skill 源码，因为仓库根目录本身就是一个有效的 skill 目录：
-- `SKILL.md` 包含核心 skill 指令（Claude Code 与其他兼容 CLI 使用）
-- `agents/openai.yaml` 包含可选的 Codex 界面元数据
+本仓库按 Agent Skills 标准组织：skill 根目录包含 `SKILL.md`。
 
-如果希望自动发现这个 skill，请执行：
+手动安装（更简单、更直观）。请在仓库根目录执行以下命令：
 
-```bash
-./scripts/install_skill.sh
-```
-
-默认会同时安装到：
-- `~/.claude/skills/advisor-research`
-- `~/.codex/skills/advisor-research`
-
-常用选项：
+### Claude Code
 
 ```bash
-./scripts/install_skill.sh --claude
-./scripts/install_skill.sh --codex
-./scripts/install_skill.sh --skills-dir ~/.your-cli/skills
-./scripts/install_skill.sh --copy
-./scripts/install_skill.sh --force
+mkdir -p ~/.claude/skills
+ln -s "$(pwd)" ~/.claude/skills/advisor-research
 ```
+
+### Codex
+
+```bash
+mkdir -p ~/.codex/skills
+ln -s "$(pwd)" ~/.codex/skills/advisor-research
+```
+
+### 其他 CLI
+
+把本目录放到对应 CLI 的 skills 目录下，并命名为 `advisor-research`。
 
 安装后，重启对应 CLI（或刷新 skills 列表），再用该 CLI 的技能调用语法调用 `advisor-research`。
 
@@ -40,7 +38,6 @@
 
 - `SKILL.md`：导师调研 skill 的完整说明。
 - `agents/openai.yaml`：可选的 Codex 界面元数据。
-- `scripts/install_skill.sh`：把本仓库安装到本地 CLI skill 目录（Claude Code、Codex、或自定义路径）。
 
 ## 这个 Skill 会产出什么
 

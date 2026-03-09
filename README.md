@@ -10,37 +10,34 @@ This repo hosts an advisor-research skill for evaluating PhD advisors and labs. 
 
 ## Install As A CLI Skill
 
-Cloning this repo gives you the full skill source because the repository root is a valid skill folder:
-- `SKILL.md` contains the core skill instructions (used by Claude Code and other compatible CLIs)
-- `agents/openai.yaml` contains optional Codex UI metadata
+This repo follows the Agent Skills standard with a `SKILL.md` at the skill root.
 
-To make the skill auto-discoverable, install this repo into your local skill registry:
+Install manually (simple and explicit). Run these commands from the repository root:
 
-```bash
-./scripts/install_skill.sh
-```
-
-By default this installs to both:
-- `~/.claude/skills/advisor-research`
-- `~/.codex/skills/advisor-research`
-
-Useful options:
+### Claude Code
 
 ```bash
-./scripts/install_skill.sh --claude
-./scripts/install_skill.sh --codex
-./scripts/install_skill.sh --skills-dir ~/.your-cli/skills
-./scripts/install_skill.sh --copy
-./scripts/install_skill.sh --force
+mkdir -p ~/.claude/skills
+ln -s "$(pwd)" ~/.claude/skills/advisor-research
 ```
 
-After installation, restart your CLI (or refresh its skill list), then invoke `advisor-research` using that CLI's skill syntax.
+### Codex
+
+```bash
+mkdir -p ~/.codex/skills
+ln -s "$(pwd)" ~/.codex/skills/advisor-research
+```
+
+### Other CLI tools
+
+Place this folder in that CLI's skills directory with the folder name `advisor-research`.
+
+After installation, restart the CLI (or refresh its skill list), then invoke `advisor-research` using that CLI's syntax.
 
 ## Repo Contents
 
 - `SKILL.md` contains the advisor research skill.
 - `agents/openai.yaml` contains optional Codex UI metadata.
-- `scripts/install_skill.sh` installs this repo into local CLI skill registries (Claude Code, Codex, and custom paths).
 
 ## What the Skill Produces
 
