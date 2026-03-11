@@ -8,6 +8,8 @@ Advisor due diligence, not vibes-only.
 
 This repo hosts an advisor-research skill for evaluating PhD advisors and labs. The framing is simple: choosing an advisor is a lot like choosing a startup CEO. Start with the failure modes, not the branding. The first job is to identify the critical problems that can seriously damage a PhD: weak funding, unclear graduation standards, abusive culture, poor placement, bad authorship norms, or a lab that looks impressive from far away but does not actually convert student effort into strong outcomes.
 
+`SKILL.md` is the canonical behavior spec. README gives the practical quick-start.
+
 ## Install As A CLI Skill
 
 This repo follows the Agent Skills standard with a `SKILL.md` at the skill root.
@@ -34,6 +36,39 @@ Place this folder in that CLI's skills directory with the folder name `advisor-r
 
 After installation, restart the CLI (or refresh its skill list), then invoke `advisor-research` using that CLI's syntax.
 
+## Quick Start (Easy Mode)
+
+1. Install the skill (commands above).
+2. In Claude Code, run `/advisor`.
+3. Paste a short request with advisor + goal + constraints.
+
+Minimal prompt template:
+
+```text
+Evaluate Prof. <name> at <university/department>.
+My goal: <academia | industry-research | industry-engineering | startup>.
+Top targets: <labs/companies>.
+Constraints: <visa/location/funding/workload>.
+```
+
+## Demo
+
+Example user prompt:
+
+```text
+/advisor Compare Prof. A (CMU) vs Prof. B (Berkeley) for industry-research.
+Targets: OpenAI, Anthropic.
+I care about internship-to-offer conversion and visa feasibility.
+```
+
+Example output (shortened):
+
+- Verdict: `Proceed with caution` for Prof. A, `Strong fit` for Prof. B
+- Industry-research score snapshot: A 62 / B 81
+- Verified frontier funnel summary (Applied → Interviewed → Interned → Return offer → Full-time)
+- Key risks first (funding, mentorship bandwidth, data coverage gaps)
+- Action plan: who to contact this week + what evidence to verify next
+
 ## Repo Contents
 
 - `SKILL.md` contains the advisor research skill.
@@ -43,9 +78,36 @@ After installation, restart the CLI (or refresh its skill list), then invoke `ad
 
 - A cited advisor dossier grounded in public evidence.
 - A fit assessment for academia, industry, or startup goals.
-- Alumni and collaborator mapping.
+- An AI Industry Outcome Scorecard (industry-research, industry-engineering, startup tracks) when non-academic AI goals are relevant.
+- A frontier pipeline funnel (applied → interviewed → interned → return offer → full-time) when frontier-lab goals are relevant.
+- A PI founder and commercialization assessment (founder history, startup support signals, student-founder precedent).
+- Expanded alumni and collaborator mapping with role-family and founder outcomes when publicly verifiable.
 - A question bank for advisor conversations and private student backchannels.
+- A 12-24 month career plan with contingency paths.
 - A practical outreach plan.
+
+## AI Career Planning Framework (Industry + Founder Focus)
+
+For AI PhD applicants, this skill evaluates career outcomes directly instead of relying on prestige proxies:
+
+- **Three-track scorecard**: separate scores for industry-research, industry-engineering, and startup paths.
+- **Frontier funnel evidence**: applied → interviewed → interned → return offer → full-time, with explicit uncertainty labels.
+- **Founder and commercialization lens**: PI founder history, alumni founder outcomes, and startup support signals (IP, flexibility, leave norms).
+- **Role-level alumni analysis**: where alumni land and in what role family (RS, AS, RE, infra, founder), not just company logos.
+- **Actionable execution plan**: a 12-24 month plan with contingency paths if the primary target track does not materialize.
+
+This keeps recommendations evidence-first and career-target specific.
+
+## Data Quality Policy
+
+To reduce false confidence, the skill uses explicit source tiers and coverage checks:
+
+- **Source tiers**: prioritize official lab/university/employer evidence, then bibliometric and profile-based evidence.
+- **Verification rule**: high-impact claims (frontier placement, internship conversion, founder outcomes, funding) should be cross-checked with at least two independent sources when possible.
+- **Entity resolution**: alumni identities are tagged as resolved, ambiguous, or unresolved before being used in strong claims.
+- **Coverage dashboard**: reports how much of the alumni data is actually verified; low coverage forces lower-confidence verdicts.
+
+The output favors transparent uncertainty over overconfident ranking.
 
 ## Start Here: Critical Problems First
 
@@ -111,8 +173,10 @@ If the answer to two or more of these is weak, that is the story. Everything els
 
 ### 3. Industry Career Outcome
 
-- Will the lab teach skills that transfer to real industry roles?
-- Are alumni landing in strong industry jobs?
+- Does the lab produce verifiable outcomes into frontier labs, applied AI roles, or both?
+- What does the frontier funnel look like (applied → interviewed → interned → return offer → full-time)?
+- Are alumni landing in strong industry jobs, and at what role families (RS, AS, RE, infra, founder)?
+- Is there concrete internship-to-offer evidence, not just anecdotal claims?
 - Is the advisor supportive of non-academic paths?
 - Can students do internships or industry collaborations without drama?
 - How is the lab viewed by employers outside academia?
@@ -136,7 +200,7 @@ If the answer to two or more of these is weak, that is the story. Everything els
 | Mentorship style | Micromanagement versus hands-off advising, meeting cadence, expectation clarity, and whether the style actually matches how you work best. |
 | Authorship and credit | Who gets first authorship, how cross-student work is handled, and whether postdocs ever crowd out student ownership. |
 | Feedback speed | Whether paper drafts and project decisions move fast enough to hit deadlines. |
-| Career development | Support for academia, industry, startups, internships, and, when relevant, visa or immigration processes. |
+| Career development | Support for academia, industry, startups, internships, and, when relevant, visa or immigration processes; include evidence for internship conversion and founder pathways when relevant. |
 | Lab culture | Internal competition versus collaboration, how conflict is handled, and whether students seem healthy, candid, and supported. |
 
 ## Questions To Ask The Advisor
@@ -148,7 +212,7 @@ If the answer to two or more of these is weak, that is the story. Everything els
 - How often do you meet students one-on-one, and what is your normal turnaround time on draft feedback?
 - How do you decide authorship and first-author ownership on shared projects?
 - What happens when a student's project is not working for several months?
-- What is your actual stance on industry internships, non-academic careers, startups, and students whose goals change?
+- What is your actual stance on industry internships, non-academic careers, startups, and students whose goals change, and what recent outcomes back that up?
 - How do you support students through health, family, visa, or other personal disruptions without derailing the degree?
 
 ## Questions To Ask Current Or Former Students
@@ -160,7 +224,7 @@ If the answer to two or more of these is weak, that is the story. Everything els
 - How fast does the advisor review drafts and make decisions in practice?
 - Has anyone quit, switched labs, or been pushed out? Why?
 - Do students usually feel they own their projects, or do postdocs and senior students dominate the good work?
-- How much does the advisor really help with internships, jobs, recommendation letters, and visa issues?
+- How much does the advisor really help with internships, jobs, recommendation letters, and visa issues, and can you point to specific recent cases?
 - What do you wish you had understood before joining?
 - What concern feels minor from the outside but becomes serious once you are inside the lab?
 
@@ -177,4 +241,4 @@ If the answer to two or more of these is weak, that is the story. Everything els
 
 ## Bottom Line
 
-Treat advisor selection like due diligence. Talk to the advisor for vision and resources, but rely on students for the truth about execution, culture, and day-to-day reality. The best choice is usually the advisor who gives you enough safety, enough growth, and enough excitement to do great work without wrecking your life.
+Treat advisor selection like due diligence. Talk to the advisor for vision and resources, but rely on students for the truth about execution, culture, and day-to-day reality. For AI PhD paths, prioritize verifiable career outcomes: frontier funnel evidence, role-level alumni trajectories, and founder/commercialization signals when startup goals matter. The best choice is usually the advisor who gives you enough safety, enough growth, and enough evidence-backed career optionality to do great work without wrecking your life.

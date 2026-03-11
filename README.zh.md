@@ -8,6 +8,8 @@
 
 本仓库提供一个用于评估 PhD 导师与实验室的 advisor-research skill。核心视角很简单：选导师很像选一家创业公司的 CEO。先看失败模式，而不是品牌光环。第一步是识别那些会严重伤害博士阶段的关键问题：资金不稳、毕业标准不清晰、文化有毒、去向不佳、署名规范差，或者实验室看起来很强但并不能把学生投入转化为高质量成果。
 
+`SKILL.md` 是行为规范的唯一权威来源；README 主要提供快速上手与示例。
+
 ## 安装为 CLI Skill
 
 本仓库按 Agent Skills 标准组织：skill 根目录包含 `SKILL.md`。
@@ -34,6 +36,39 @@ ln -s "$(pwd)" ~/.codex/skills/advisor-research
 
 安装后，重启对应 CLI（或刷新 skills 列表），再用该 CLI 的技能调用语法调用 `advisor-research`。
 
+## 快速开始（最省事）
+
+1. 按上面的命令安装 skill。
+2. 在 Claude Code 中输入 `/advisor`。
+3. 粘贴一段简短请求：导师 + 目标 + 约束。
+
+最小输入模板：
+
+```text
+Evaluate Prof. <name> at <university/department>.
+My goal: <academia | industry-research | industry-engineering | startup>.
+Top targets: <labs/companies>.
+Constraints: <visa/location/funding/workload>.
+```
+
+## Demo
+
+示例用户输入：
+
+```text
+/advisor Compare Prof. A (CMU) vs Prof. B (Berkeley) for industry-research.
+Targets: OpenAI, Anthropic.
+I care about internship-to-offer conversion and visa feasibility.
+```
+
+示例输出（节选）：
+
+- 结论：Prof. A 为 `Proceed with caution`，Prof. B 为 `Strong fit`
+- industry-research 评分快照：A 62 / B 81
+- 已验证 frontier 漏斗摘要（Applied → Interviewed → Interned → Return offer → Full-time）
+- 先给关键风险（资金、指导带宽、数据覆盖缺口）
+- 行动计划：这周先联系谁、下一步补哪些证据
+
 ## 仓库内容
 
 - `SKILL.md`：导师调研 skill 的完整说明。
@@ -43,9 +78,36 @@ ln -s "$(pwd)" ~/.codex/skills/advisor-research
 
 - 基于公开证据、可溯源引用的导师档案（dossier）
 - 面向学术、工业或创业目标的匹配度评估
-- 校友与合作网络映射
+- 当目标偏 AI 非学术路径时，给出 AI 工业结果评分卡（industry-research / industry-engineering / startup）
+- 当目标包含 frontier labs 时，给出 frontier 漏斗（applied → interviewed → interned → return offer → full-time）
+- PI 创业与商业化能力评估（PI 创业经历、创业支持信号、学生创业先例）
+- 扩展版校友与合作网络映射（在公开可验证范围内加入岗位类型与创业结果）
 - 用于导师沟通与私下学生访谈的问题清单
+- 12-24 个月职业路径计划（含备选路径）
 - 可执行的联系与调研计划
+
+## AI 职业规划框架（工业 + 创业导向）
+
+针对 AI PhD 申请者，本 skill 会直接评估职业结果，而不是只看名气指标：
+
+- **三轨评分卡**：分别评估 industry-research、industry-engineering、startup 三条路径。
+- **Frontier 漏斗证据**：applied → interviewed → interned → return offer → full-time，并标注不确定性。
+- **创业与商业化视角**：评估 PI 创业经历、校友创业结果、以及实验室对创业的制度支持（IP、灵活性、leave）。
+- **岗位级校友分析**：不仅看公司名，还看岗位类型（RS、AS、RE、infra、founder）与演进。
+- **可执行时间线**：给出 12-24 个月职业路径与备选方案，避免单一路径失效。
+
+这样可以把结论建立在可验证证据上，并与目标职业路径强对齐。
+
+## 数据质量策略
+
+为减少“看起来很确定、实际证据不足”的风险，skill 会显式输出证据质量：
+
+- **来源分层**：优先使用实验室/学校/雇主官方证据，其次再用 bibliometric 与公开职业资料。
+- **交叉验证规则**：frontier 去向、实习转正、创业结果、资金等高影响结论，尽量要求双来源交叉验证。
+- **身份消歧**：校友身份会标记为 resolved / ambiguous / unresolved，再决定是否纳入强结论。
+- **覆盖率仪表盘**：展示“多少比例的数据真的可验证”；覆盖率低时，结论会自动降置信度。
+
+相比“硬给结论”，本仓库更强调可验证证据与透明不确定性。
 
 ## 从这里开始：先看关键问题
 
@@ -111,8 +173,10 @@ ln -s "$(pwd)" ~/.codex/skills/advisor-research
 
 ### 3. 工业职业结果
 
-- 该组是否能提供可迁移到真实工业岗位的技能？
-- 校友是否进入了高质量工业岗位？
+- 该组是否有可验证的结果进入 frontier labs、应用型 AI 岗位，或两者兼具？
+- frontier 漏斗表现如何（applied → interviewed → interned → return offer → full-time）？
+- 校友是否进入了高质量工业岗位，岗位类型分别是什么（RS、AS、RE、infra、founder）？
+- 是否有具体可验证的“实习到全职转化”证据，而不只是口头案例？
 - 导师是否真心支持非学术路径？
 - 学生做实习或产业合作时是否会被设置障碍？
 - 实验室在学术圈外雇主中的口碑如何？
@@ -136,7 +200,7 @@ ln -s "$(pwd)" ~/.codex/skills/advisor-research
 | 指导风格 | 微观管理或放权、会议频率、预期清晰度，以及风格是否与你的工作方式匹配。 |
 | 署名与贡献 | 一作归属规则、跨学生项目分工，以及 postdoc 是否会挤压学生主导权。 |
 | 反馈速度 | 论文草稿与项目决策是否足够快，能否赶上关键 deadline。 |
-| 职业发展 | 对学术、工业、创业、实习，以及必要时签证/移民流程的支持程度。 |
+| 职业发展 | 对学术、工业、创业、实习，以及必要时签证/移民流程的支持程度；当目标相关时加入实习转化与创业路径证据。 |
 | 组内文化 | 内部竞争与协作关系、冲突处理方式，以及学生是否显得健康、坦诚且被支持。 |
 
 ## 可以问导师的问题
@@ -148,7 +212,7 @@ ln -s "$(pwd)" ~/.codex/skills/advisor-research
 - 你与学生一对一沟通的频率如何？对草稿反馈的常规周转时间是多少？
 - 共享项目中的署名与一作归属如何决定？
 - 当学生的项目连续几个月没有进展时，通常如何处理？
-- 你对工业实习、非学术路径、创业，以及学生目标变化的真实态度是什么？
+- 你对工业实习、非学术路径、创业，以及学生目标变化的真实态度是什么？最近有哪些可验证结果能支持这个说法？
 - 学生遇到健康、家庭、签证等个人冲击时，如何支持且不让学位进程失控？
 
 ## 可以问在读或已毕业学生的问题
@@ -160,7 +224,7 @@ ln -s "$(pwd)" ~/.codex/skills/advisor-research
 - 导师在实际中审稿和决策速度有多快？
 - 是否有人退组、转组或被边缘化？原因是什么？
 - 学生通常对项目有主导权吗，还是被 postdoc/高年级压住？
-- 导师在实习、求职、推荐信和签证问题上到底提供多少实质支持？
+- 导师在实习、求职、推荐信和签证问题上到底提供多少实质支持？能否举出最近的具体案例？
 - 加入前你最希望自己早知道的一件事是什么？
 - 哪个在外部看似小问题，进组后会变成大问题？
 
@@ -177,4 +241,4 @@ ln -s "$(pwd)" ~/.codex/skills/advisor-research
 
 ## 结论
 
-把选导师当作尽职调查来做。与导师交流愿景与资源，但关于执行质量、文化氛围和日常体验，优先相信学生证据。通常最优解是：在不透支人生的前提下，给你足够安全、足够成长、也足够兴奋感的那个导师。
+把选导师当作尽职调查来做。与导师交流愿景与资源，但关于执行质量、文化氛围和日常体验，优先相信学生证据。对于 AI PhD 路径，优先看可验证的职业结果：frontier 漏斗证据、校友岗位演进、以及创业目标下的 PI 商业化与校友创业信号。通常最优解是：在不透支人生的前提下，给你足够安全、足够成长、并且有证据支撑职业可选择性的那个导师。
