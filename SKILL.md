@@ -66,6 +66,7 @@ Use source tiers and confidence labels explicitly.
 - If only one source exists: label claim as provisional
 - If sources conflict: show the conflict and reduce confidence
 - Do not let unresolved identity matches contribute to strong-fit claims
+- Treat `DeepMind` and `Google DeepMind` as the same employer family when aggregating placement evidence; do not double-count them as separate destinations
 
 ### Entity resolution
 For each alumnus, attempt disambiguation by name + institution + dates + coauthor or lab context:
@@ -87,11 +88,14 @@ Establish the advisor's research profile:
 
 Map trainee outcomes with public evidence. **Do not rely on star alumni alone:** assess the **full cohort**. Average and variance of outcomes matter, so that placement and attrition reflect typical cases instead of best cases only.
 
+Default expectation: attempt to cover **all publicly identifiable students and trainees**, not a small sample. If full coverage is not possible, explicitly enumerate what was covered, what remains unresolved, and why.
+
 - Current lab members and projects
 - First-author frequency and venue quality for trainees
 - Estimated start and graduation years for prior trainees
 - First job after graduation and current role (for **every** identifiable graduate when possible)
 - Outcome type: academia, industry research, engineering, startup, unemployed, unknown
+- For industry placements, count strong quantitative-finance research and trading firms (for example, top quant shops) as strong industry outcomes when the role quality is high and publicly verifiable
 - **Attrition and non-completion:** Identify students who left the PhD without graduating. Where evidence allows, classify as **good quit** (e.g., joined strong company, founded startup) vs **bad quit** (e.g., forced out, left due to untenable conditions). Note: advisors rarely list non-completions or weak outcomes on lab pages; use professional profiles, co-author graphs, department or thesis databases, and explicit "former members" lists, and state when this evidence is missing or partial.
 
 When dates are uncertain, provide year windows and a confidence label.
@@ -176,6 +180,10 @@ When the student is AI-focused and has any non-academic goal, include a quantita
 - Project relevance to target teams (pretraining, post-training, alignment, evals, infra): 15
 - Geography and visa feasibility: 10
 
+Notes:
+- Treat `DeepMind` and `Google DeepMind` as one placement family for counting and funnel summaries
+- When relevant to the student's goal, count top quant shops as strong industry outcomes rather than ignoring them as "non-frontier"
+
 ### Industry-engineering track (0-100)
 - Production-grade engineering exposure: 30
 - Internship access and conversion: 25
@@ -219,6 +227,7 @@ Apply this gate when the student explicitly targets frontier labs such as OpenAI
 - Build a verified frontier placement table for alumni or current trainees using explicit evidence
 - Separate verified frontier placements from adjacent placements and unknown outcomes
 - If there is no verifiable frontier placement evidence, say so plainly in the executive summary
+- Count `DeepMind` and `Google DeepMind` as the same frontier destination family
 
 Use this explicit gate policy:
 - If verified frontier full-time placements = 0 **and** verified frontier internships <= 1, cap final verdict at `Proceed with caution`.
@@ -275,6 +284,8 @@ Build an alumni intelligence table with one row per alumnus or a clearly marked 
 - Exit type (graduated, positive attrition, neutral attrition, negative attrition, unknown)
 - Post-exit outcome quality (strong, acceptable, weak, unknown)
 - Near-term unemployment/underemployment signal after exit (yes/no/unknown)
+
+Aim to include **every publicly identifiable student / trainee row**. If the table would become very large, keep all rows but compress low-information columns rather than dropping people.
 
 Use this rubric:
 - `direct`: shared advisor, institution, co-author, or an immediate warm intro path
