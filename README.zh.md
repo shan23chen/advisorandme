@@ -30,6 +30,13 @@ mkdir -p ~/.codex/skills
 ln -s "$(pwd)" ~/.codex/skills/advisor-research
 ```
 
+### Cursor
+
+```bash
+mkdir -p ~/.cursor/skills
+ln -s "$(pwd)" ~/.cursor/skills/advisor-research
+```
+
 ### 其他 CLI
 
 把本目录放到对应 CLI 的 skills 目录下，并命名为 `advisor-research`。

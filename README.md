@@ -30,6 +30,13 @@ mkdir -p ~/.codex/skills
 ln -s "$(pwd)" ~/.codex/skills/advisor-research
 ```
 
+### Cursor
+
+```bash
+mkdir -p ~/.cursor/skills
+ln -s "$(pwd)" ~/.cursor/skills/advisor-research
+```
+
 ### Other CLI tools
 
 Place this folder in that CLI's skills directory with the folder name `advisor-research`.
