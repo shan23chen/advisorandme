@@ -275,7 +275,7 @@ I care about internship-to-offer conversion and visa feasibility.
 - 加入前你最希望自己早知道的一件事是什么？
 - 哪个在外部看似小问题，进组后会变成大问题？
 
-## 常见红旗
+## 常见雷点
 
 - 资金问题回答含糊、前后不一致，且不同人说法不同
 - 学生无法清楚解释署名规则
