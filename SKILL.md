@@ -39,6 +39,8 @@ Lead with the risks that can seriously damage the student's outcome:
 - Poor management
 - Unhealthy lab culture
 
+**Placement and attrition:** Evaluate placement by **overall distribution** (average and variance across all trainees), not only the top stars. Actively look for: (1) graduates who are unemployed or in weak roles long after graduation; (2) students who left the PhD without graduating. For non-completions, distinguish **good quits** (e.g., founded a startup, joined a strong company) from **bad quits** (e.g., forced out by advisor, left because conditions were unbearable). This information is often absent from lab websites; advisors tend to highlight success cases. Infer from professional profiles, department records, or private channels when possible, and report coverage gaps explicitly.
+
 Do not let prestige, citations, or topic overlap bury unresolved risk.
 
 ## Research Workflow
@@ -79,13 +81,14 @@ Establish the advisor's research profile:
 
 ### Lab, students, and alumni
 
-Map trainee outcomes with public evidence:
+Map trainee outcomes with public evidence. **Do not rely on star alumni alone:** assess the **full cohort**. Average and variance of outcomes matter, so that placement and attrition reflect typical cases instead of best cases only.
+
 - Current lab members and projects
 - First-author frequency and venue quality for trainees
 - Estimated start and graduation years for prior trainees
-- First job after graduation and current role
-- Outcome type: academia, industry research, engineering, startup, mixed, or unknown
-- Attrition or transfers only when publicly verifiable
+- First job after graduation and current role (for **every** identifiable graduate when possible)
+- Outcome type: academia, industry research, engineering, startup, unemployed, unknown
+- **Attrition and non-completion:** Identify students who left the PhD without graduating. Where evidence allows, classify as **good quit** (e.g., joined strong company, founded startup) vs **bad quit** (e.g., forced out, left due to untenable conditions). Note: advisors rarely list non-completions or weak outcomes on lab pages; use professional profiles, co-author graphs, department or thesis databases, and explicit "former members" lists, and state when this evidence is missing or partial.
 
 When dates are uncertain, provide year windows and a confidence label.
 
@@ -273,6 +276,7 @@ Report coverage so the user can judge evidence quality:
 - Percent with role-family classification confidence high or medium
 - Percent with frontier funnel evidence for relevant targets
 - Percent with founder/commercialization evidence for startup goals
+- **Attrition and weak outcomes:** Whether non-completions (quits, transfers) and post-graduation unemployment or weak placement could be identified; if lab pages omit these, say so and note that coverage of "full distribution" (not just stars) is limited.
 
 Use this coverage confidence rubric:
 - `high` coverage confidence: all critical metrics >= 70%
@@ -288,7 +292,7 @@ Critical metrics are:
 Rules:
 - If coverage confidence is `low`, cap final verdict at `Proceed with caution` unless there is overwhelming Tier A evidence for the key claim.
 - If coverage confidence is `low` and frontier evidence is also weak, cap verdict at `Significant concerns`.
-- Always list which missing data points would most likely change the verdict.
+- Always list which missing data points would most likely change the verdict (including missing or partial evidence on attrition, non-completions, and unemployed or weak-outcome graduates).
 
 ## Question Generation
 
@@ -313,12 +317,13 @@ Always include these student or private-channel questions:
 2. Are boundaries respected, or does the lab run on pressure?
 3. How does the advisor behave when projects fail or students struggle?
 4. How fast are drafts reviewed and decisions made in practice?
-5. Is there attrition or transfer history, and what actually happened?
-6. Do students really own projects and authorship?
-7. How strong is placement support for the student's likely goal?
-8. How good is visa or immigration support when relevant?
-9. What do people wish they knew before joining?
-10. What is the most underappreciated concern about the lab?
+5. Is there attrition or transfer history, and what actually happened? Distinguish good quits (e.g., startup or strong offer) from bad quits (forced out or left because conditions were unbearable).
+6. Do you know of any graduates who struggled to find a job or were unemployed after leaving? (Lab websites rarely list these; private channels matter.)
+7. Do students really own projects and authorship?
+8. How strong is placement support for the student's likely goal?
+9. How good is visa or immigration support when relevant?
+10. What do people wish they knew before joining?
+11. What is the most underappreciated concern about the lab?
 
 ## Output
 
