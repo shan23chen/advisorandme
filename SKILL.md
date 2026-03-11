@@ -1,5 +1,5 @@
 ---
-name: advisor-research
+name: advisor-and-me
 description: Use when users ask to evaluate, compare, or choose a PhD advisor or lab. Also trigger when users mention PI fit, advisor shortlist, lab culture, professor due diligence, or PhD offer decisions, even if they do not explicitly ask for a dossier. Especially relevant for AI-career planning requests involving frontier-lab outcomes, internship-to-offer conversion, alumni role trajectories, PI commercialization/founder signals, or startup paths. Produces a cited advisor dossier with scorecards, risk gates, outreach guidance, and a 12-24 month career plan.
 ---
 
@@ -19,13 +19,16 @@ Ask for student context when available because fit depends on goals:
 - Background: methods, projects, publications, and research experience
 - Public profile links if they help with personalization
 - Primary goal: academia, industry-research, industry-engineering, startup, or exploration
+- Goal mix if multi-track (for example: academia 60, industry-research 40)
 - Specific concerns such as funding, visa, workload, location, or mentorship style
+- Personal priorities or ideas they want tested (for example: faculty placement, topic depth, advisor style, work-life sustainability)
 
 For AI career planning, also ask:
 - Top target labs or companies (ranked)
 - Target role family: RS, AS, RE, infra, founder, or mixed
 - Preferred geography and visa constraints
 - Founder intent: none, maybe, or high
+- Any custom success criteria the student wants weighted in the final recommendation
 
 If student profile links are provided, read them and tailor the fit analysis and outreach plan.
 
@@ -35,6 +38,7 @@ Lead with the risks that can seriously damage the student's outcome:
 - Funding instability
 - Unclear graduation path
 - Weak placement
+- High placement variance and weak lower-tail outcomes
 - Unfair authorship
 - Poor management
 - Unhealthy lab culture
@@ -92,6 +96,16 @@ Map trainee outcomes with public evidence. **Do not rely on star alumni alone:**
 
 When dates are uncertain, provide year windows and a confidence label.
 
+Compute placement distribution quality, not just best-case outcomes:
+- Report central tendency (median/typical outcome)
+- Report variance and lower-tail outcomes (bottom 25% style summary)
+- Explicitly flag unemployment risk at graduation and near-term post-graduation underemployment when public evidence exists
+- Distinguish attrition categories when evidence allows:
+  - `positive attrition`: left for strong opportunity (e.g., startup/founding role, selective industry role)
+  - `neutral attrition`: moved for personal/location reasons with no clear negative signal
+  - `negative attrition`: left due to poor fit, harmful conditions, advisor conflict, or forced exit indicators
+- If attrition reason is unclear, label as unknown and do not infer
+
 ### Funding and infrastructure
 
 Check whether the lab can actually support the stated agenda:
@@ -137,9 +151,11 @@ Use these base weights by goal:
 | `startup` | 25 | 10 | 45 | 20 |
 | `exploration` | 25 | 25 | 25 | 25 |
 
+If the student provides a multi-goal mix (for example academia 60 / industry-research 40), compute a blended weight vector by weighted average of the corresponding base rows.
+
 Compute a **Four-Dimension Fit Score** out of 100:
 - Assign each dimension a 0-100 score with evidence and confidence.
-- Multiply each dimension by its goal weight.
+- Multiply each dimension by its goal (or blended-goal) weight.
 - Sum weighted values for the final Four-Dimension Fit Score.
 
 Use this score-to-verdict mapping as the default:
@@ -192,6 +208,10 @@ Use this sequence to avoid conflicting verdict logic:
 5. Final verdict is the strictest verdict after all caps.
 
 When the student has mixed non-academic goals, evaluate each relevant track and use the strictest cap among those tracks.
+When the student includes academia + non-academic goals, include both:
+- academic outcome analysis (and evidence)
+- relevant non-academic track scorecards
+and make the final verdict reflect the stated mix and custom priorities.
 
 ## Frontier-Lab Evidence Gate
 
@@ -252,6 +272,9 @@ Build an alumni intelligence table with one row per alumnus or a clearly marked 
 - Public profiles
 - Best reach-out channel
 - Connection strength to the student: `direct`, `adjacent`, or `weak`
+- Exit type (graduated, positive attrition, neutral attrition, negative attrition, unknown)
+- Post-exit outcome quality (strong, acceptable, weak, unknown)
+- Near-term unemployment/underemployment signal after exit (yes/no/unknown)
 
 Use this rubric:
 - `direct`: shared advisor, institution, co-author, or an immediate warm intro path
@@ -260,6 +283,9 @@ Use this rubric:
 
 Also provide:
 - An overall alumni-outcome estimate by category
+- Placement distribution summary (top / median / lower-tail) with variance commentary
+- Attrition breakdown by type (positive / neutral / negative / unknown)
+- Graduation-to-first-role latency and unemployment risk summary when evidence exists
 - A frontier-lab readiness estimate with uncertainty
 - A PI commercialization and founder enablement assessment:
   - PI founder history or startup advisory roles
@@ -276,6 +302,8 @@ Report coverage so the user can judge evidence quality:
 - Percent with role-family classification confidence high or medium
 - Percent with frontier funnel evidence for relevant targets
 - Percent with founder/commercialization evidence for startup goals
+- Percent with verifiable attrition reason classification
+- Percent with verifiable first-role latency or employment-status evidence near graduation
 - **Attrition and weak outcomes:** Whether non-completions (quits, transfers) and post-graduation unemployment or weak placement could be identified; if lab pages omit these, say so and note that coverage of "full distribution" (not just stars) is limited.
 
 Use this coverage confidence rubric:
@@ -288,6 +316,8 @@ Critical metrics are:
 - verified first-role coverage
 - verified current-role coverage
 - role-family classification (high/medium confidence)
+- attrition reason coverage
+- near-graduation employment-status/latency coverage
 
 Rules:
 - If coverage confidence is `low`, cap final verdict at `Proceed with caution` unless there is overwhelming Tier A evidence for the key claim.
@@ -327,7 +357,10 @@ Always include these student or private-channel questions:
 
 ## Output
 
-Write the full report to `./advisor-dossier-{advisor-lastname}.md`.
+Write the full report to disk using deterministic filenames:
+- Single advisor: `./advisor-dossier-{advisor-lastname}.md`
+- Multiple advisors compared: `./advisor-dossier-compare-{lastname1}-vs-{lastname2}[...].md`
+
 In the response, present:
 1) Executive Summary
 2) Final verdict
@@ -345,11 +378,12 @@ Use inline citations such as `[1]` for every factual claim. Include a source lis
 3. Strong Pros and Strong Cons
 4. Critical Suggestions
 5. Alumni Outcomes and Graduation Windows
-6. Data Coverage Dashboard
-7. Four-Dimension Risk and Fit Assessment
-8. Personalized Fit
-9. Research Gaps
-10. Sources
+6. Placement Distribution and Attrition Analysis
+7. Data Coverage Dashboard
+8. Four-Dimension Risk and Fit Assessment
+9. Personalized Fit
+10. Research Gaps
+11. Sources
 
 ### Conditional sections (include only when relevant)
 - Academic Profile
@@ -387,3 +421,17 @@ Follow these constraints:
 - Apply frontier and coverage gate policies exactly as defined above
 - End with actionable next steps
 - Write in direct, readable language without corporate filler
+
+## End-to-End Example (Single Example)
+
+Use this as a formatting and reasoning reference:
+
+**Input (user):**
+`/advisor-and-me Compare Prof. A (CMU) vs Prof. B (Berkeley) for industry-research. Targets: OpenAI, Anthropic. I care about internship-to-offer conversion and visa feasibility.`
+
+**Expected output behavior:**
+- Produce one compare dossier at `./advisor-dossier-compare-a-vs-b.md`
+- Lead with critical risks/unknowns before prestige
+- Include relevant score snapshots (Four-Dimension Fit + industry-research track)
+- Apply frontier and coverage gates before final verdict
+- Provide concrete next-step outreach and verification actions

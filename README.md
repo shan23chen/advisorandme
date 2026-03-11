@@ -1,4 +1,4 @@
-# Advisorinder
+# AdvisorAndMe
 [![Contributor: Shan Chen](https://img.shields.io/badge/Contributor-Shan%20Chen-2ea44f)](https://shanchen.dev/)
 [![Contributor: Chen Liu](https://img.shields.io/badge/Contributor-Chen%20Liu-4a86cf)](https://chenliu-1996.github.io/)
 
@@ -6,7 +6,7 @@ English | [中文](./README.zh.md)
 
 Advisor due diligence, not vibes-only.
 
-This repo hosts an advisor-research skill for evaluating PhD advisors and labs. The framing is simple: choosing an advisor is a lot like choosing a startup CEO. Start with the failure modes, not the branding. The first job is to identify the critical problems that can seriously damage a PhD: weak funding, unclear graduation standards, abusive culture, poor placement, bad authorship norms, or a lab that looks impressive from far away but does not actually convert student effort into strong outcomes.
+This repo hosts an advisor-and-me skill for evaluating PhD advisors and labs. The framing is simple: choosing an advisor is a lot like choosing a startup CEO. Start with the failure modes, not the branding. The first job is to identify the critical problems that can seriously damage a PhD: weak funding, unclear graduation standards, abusive culture, poor placement, bad authorship norms, or a lab that looks impressive from far away but does not actually convert student effort into strong outcomes.
 
 `SKILL.md` is the canonical behavior spec. README gives the practical quick-start.
 
@@ -20,14 +20,14 @@ Install manually (simple and explicit). Run these commands from the repository r
 
 ```bash
 mkdir -p ~/.claude/skills
-ln -s "$(pwd)" ~/.claude/skills/advisor-research
+ln -s "$(pwd)" ~/.claude/skills/advisor-and-me
 ```
 
 ### Codex
 
 ```bash
 mkdir -p ~/.codex/skills
-ln -s "$(pwd)" ~/.codex/skills/advisor-research
+ln -s "$(pwd)" ~/.codex/skills/advisor-and-me
 ```
 
 ### Cursor
@@ -39,14 +39,14 @@ ln -s "$(pwd)" ~/.cursor/skills/advisor-research
 
 ### Other CLI tools
 
-Place this folder in that CLI's skills directory with the folder name `advisor-research`.
+Place this folder in that CLI's skills directory with the folder name `advisor-and-me`.
 
-After installation, restart the CLI (or refresh its skill list), then invoke `advisor-research` using that CLI's syntax.
+After installation, restart the CLI (or refresh its skill list), then invoke `advisor-and-me` using that CLI's syntax.
 
 ## Quick Start (Easy Mode)
 
 1. Install the skill (commands above).
-2. In Claude Code, run `/advisor`.
+2. In Claude Code, run `/advisor-and-me`.
 3. Paste a short request with advisor + goal + constraints.
 
 Minimal prompt template:
@@ -63,7 +63,7 @@ Constraints: <visa/location/funding/workload>.
 Example user prompt:
 
 ```text
-/advisor Compare Prof. A (CMU) vs Prof. B (Berkeley) for industry-research.
+/advisor-and-me Compare Prof. A (CMU) vs Prof. B (Berkeley) for industry-research.
 Targets: OpenAI, Anthropic.
 I care about internship-to-offer conversion and visa feasibility.
 ```
@@ -93,14 +93,17 @@ Example output (shortened):
 - A 12-24 month career plan with contingency paths.
 - A practical outreach plan.
 
-## AI Career Planning Framework (Industry + Founder Focus)
+## AI Career Planning Framework (Academia + Industry + Founder)
 
-For AI PhD applicants, this skill evaluates career outcomes directly instead of relying on prestige proxies:
+For AI PhD applicants, this skill evaluates career outcomes directly instead of relying on prestige proxies, and supports both academia-focused and non-academic targets:
 
-- **Three-track scorecard**: separate scores for industry-research, industry-engineering, and startup paths.
+- **Academic outcome lens**: publication quality, faculty/postdoc placement signals, mentorship depth, and scholarly network quality.
+- **Three-track non-academic scorecard**: separate scores for industry-research, industry-engineering, and startup paths.
 - **Frontier funnel evidence**: applied → interviewed → interned → return offer → full-time, with explicit uncertainty labels.
 - **Founder and commercialization lens**: PI founder history, alumni founder outcomes, and startup support signals (IP, flexibility, leave norms).
 - **Role-level alumni analysis**: where alumni land and in what role family (RS, AS, RE, infra, founder), not just company logos.
+- **Distribution over outliers**: evaluates top/median/lower-tail placement quality, attrition type, and unemployment risk near graduation when evidence exists.
+- **User-defined priorities**: users can supply custom goal mix and evaluation priorities, and the final recommendation reflects that weighting.
 - **Actionable execution plan**: a 12-24 month plan with contingency paths if the primary target track does not materialize.
 
 This keeps recommendations evidence-first and career-target specific.
@@ -115,6 +118,43 @@ To reduce false confidence, the skill uses explicit source tiers and coverage ch
 - **Coverage dashboard**: reports how much of the alumni data is actually verified; low coverage forces lower-confidence verdicts.
 
 The output favors transparent uncertainty over overconfident ranking.
+
+## Student Decision Flow (Even Without Running The Skill)
+
+Use this flow before committing to a lab:
+
+```text
+Start
+  |
+  v
+[1] Can funding plausibly cover your full PhD timeline?
+  |-- No / unclear --> HIGH RISK: do not commit yet; verify grants + fallback plan
+  |-- Yes --> continue
+  v
+[2] Are graduation milestones and typical time-to-degree clear?
+  |-- No --> HIGH RISK: ask current and recent alumni before deciding
+  |-- Yes --> continue
+  v
+[3] Is culture healthy (no fear, no chronic overwork, no authorship opacity)?
+  |-- No --> HIGH RISK: treat as major red flag
+  |-- Yes --> continue
+  v
+[4] Is there verified outcome evidence for your goal (academia/industry/startup)?
+  |-- No --> CAUTION: downgrade confidence, collect more evidence
+  |-- Yes --> continue
+  v
+[5] Is your personal fit workable (topic, location, mentorship style, visa constraints)?
+  |-- No --> CAUTION: consider alternatives
+  |-- Yes --> proceed to offer decision with explicit risk notes
+```
+
+## Manual Checklist (No Tool Needed)
+
+- Ask one current student + one recent alum the same 5 questions.
+- Verify one funding fact from an official source.
+- Verify at least one alumni outcome for your target path.
+- Ask for concrete authorship norms on shared projects.
+- Write down your top 3 risks before accepting any offer.
 
 ## Start Here: Critical Problems First
 

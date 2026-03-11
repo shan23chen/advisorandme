@@ -1,4 +1,4 @@
-# Advisorinder
+# AdvisorAndMe
 [![Contributor: Shan Chen](https://img.shields.io/badge/Contributor-Shan%20Chen-2ea44f)](https://shanchen.dev/)
 [![Contributor: Chen Liu](https://img.shields.io/badge/Contributor-Chen%20Liu-4a86cf)](https://chenliu-1996.github.io/)
 
@@ -6,7 +6,7 @@
 
 导师尽职调查，不靠“感觉流”。
 
-本仓库提供一个用于评估 PhD 导师与实验室的 advisor-research skill。核心视角很简单：选导师很像选一家创业公司的 CEO。先看失败模式，而不是品牌光环。第一步是识别那些会严重伤害博士阶段的关键问题：资金不稳、毕业标准不清晰、文化有毒、去向不佳、署名规范差，或者实验室看起来很强但并不能把学生投入转化为高质量成果。
+本仓库提供一个用于评估 PhD 导师与实验室的 advisor-and-me skill。核心视角很简单：选导师很像选一家创业公司的 CEO。先看失败模式，而不是品牌光环。第一步是识别那些会严重伤害博士阶段的关键问题：资金不稳、毕业标准不清晰、文化有毒、去向不佳、署名规范差，或者实验室看起来很强但并不能把学生投入转化为高质量成果。
 
 `SKILL.md` 是行为规范的唯一权威来源；README 主要提供快速上手与示例。
 
@@ -20,14 +20,14 @@
 
 ```bash
 mkdir -p ~/.claude/skills
-ln -s "$(pwd)" ~/.claude/skills/advisor-research
+ln -s "$(pwd)" ~/.claude/skills/advisor-and-me
 ```
 
 ### Codex
 
 ```bash
 mkdir -p ~/.codex/skills
-ln -s "$(pwd)" ~/.codex/skills/advisor-research
+ln -s "$(pwd)" ~/.codex/skills/advisor-and-me
 ```
 
 ### Cursor
@@ -39,14 +39,14 @@ ln -s "$(pwd)" ~/.cursor/skills/advisor-research
 
 ### 其他 CLI
 
-把本目录放到对应 CLI 的 skills 目录下，并命名为 `advisor-research`。
+把本目录放到对应 CLI 的 skills 目录下，并命名为 `advisor-and-me`。
 
-安装后，重启对应 CLI（或刷新 skills 列表），再用该 CLI 的技能调用语法调用 `advisor-research`。
+安装后，重启对应 CLI（或刷新 skills 列表），再用该 CLI 的技能调用语法调用 `advisor-and-me`。
 
 ## 快速开始（最省事）
 
 1. 按上面的命令安装 skill。
-2. 在 Claude Code 中输入 `/advisor`。
+2. 在 Claude Code 中输入 `/advisor-and-me`。
 3. 粘贴一段简短请求：导师 + 目标 + 约束。
 
 最小输入模板：
@@ -63,7 +63,7 @@ Constraints: <visa/location/funding/workload>.
 示例用户输入：
 
 ```text
-/advisor Compare Prof. A (CMU) vs Prof. B (Berkeley) for industry-research.
+/advisor-and-me Compare Prof. A (CMU) vs Prof. B (Berkeley) for industry-research.
 Targets: OpenAI, Anthropic.
 I care about internship-to-offer conversion and visa feasibility.
 ```
@@ -93,14 +93,17 @@ I care about internship-to-offer conversion and visa feasibility.
 - 12-24 个月职业路径计划（含备选路径）
 - 可执行的联系与调研计划
 
-## AI 职业规划框架（工业 + 创业导向）
+## AI 职业规划框架（学术 + 工业 + 创业）
 
-针对 AI PhD 申请者，本 skill 会直接评估职业结果，而不是只看名气指标：
+针对 AI PhD 申请者，本 skill 会直接评估职业结果，而不是只看名气指标；同时支持学术导向与非学术导向：
 
-- **三轨评分卡**：分别评估 industry-research、industry-engineering、startup 三条路径。
+- **学术结果视角**：关注论文质量、教职/博后去向信号、指导深度与学术网络质量。
+- **非学术三轨评分卡**：分别评估 industry-research、industry-engineering、startup 三条路径。
 - **Frontier 漏斗证据**：applied → interviewed → interned → return offer → full-time，并标注不确定性。
 - **创业与商业化视角**：评估 PI 创业经历、校友创业结果、以及实验室对创业的制度支持（IP、灵活性、leave）。
 - **岗位级校友分析**：不仅看公司名，还看岗位类型（RS、AS、RE、infra、founder）与演进。
+- **看分布而不只看尖子**：评估 top/median/lower-tail 去向质量、退出类型，以及毕业附近失业风险（有证据时）。
+- **用户自定义优先级**：用户可提供目标权重与自定义评价重点，最终建议按其权重输出。
 - **可执行时间线**：给出 12-24 个月职业路径与备选方案，避免单一路径失效。
 
 这样可以把结论建立在可验证证据上，并与目标职业路径强对齐。
@@ -115,6 +118,43 @@ I care about internship-to-offer conversion and visa feasibility.
 - **覆盖率仪表盘**：展示“多少比例的数据真的可验证”；覆盖率低时，结论会自动降置信度。
 
 相比“硬给结论”，本仓库更强调可验证证据与透明不确定性。
+
+## 学生决策流程（即使不运行 Skill）
+
+在确认导师前，按下面流程走一遍：
+
+```text
+开始
+  |
+  v
+[1] 资金是否大概率覆盖整个博士周期？
+  |-- 否 / 不清楚 --> 高风险：先别承诺，补查 grant 与兜底方案
+  |-- 是 --> 继续
+  v
+[2] 毕业里程碑与常见毕业时长是否清晰？
+  |-- 否 --> 高风险：先问在读生与近届毕业生
+  |-- 是 --> 继续
+  v
+[3] 组内文化是否健康（非恐惧驱动、非长期过劳、署名规则清楚）？
+  |-- 否 --> 高风险：视为重大红旗
+  |-- 是 --> 继续
+  v
+[4] 是否有与你目标匹配的可验证去向证据（学术/工业/创业）？
+  |-- 否 --> 谨慎：降低置信度并继续补证据
+  |-- 是 --> 继续
+  v
+[5] 个人匹配是否可持续（课题、地点、指导风格、签证约束）？
+  |-- 否 --> 谨慎：优先考虑替代选项
+  |-- 是 --> 带着明确风险清单做最终决策
+```
+
+## 手动核查清单（不用工具）
+
+- 向 1 位在读生 + 1 位近届毕业生问同一组 5 个问题。
+- 从官方渠道核验 1 条资金事实。
+- 为你的目标路径核验至少 1 条校友去向。
+- 问清共享项目的一作与署名规则。
+- 接 offer 前，把你最担心的 3 个风险写出来。
 
 ## 从这里开始：先看关键问题
 
