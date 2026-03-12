@@ -1,8 +1,15 @@
-# AdvisorAndMe
+<div align="center">
+
+<img src="assets/logo.png" width="400">
+<h1>AdvisorAndMe</h1>
+
 [![Contributor: Shan Chen](https://img.shields.io/badge/Contributor-Shan%20Chen-2ea44f)](https://shanchen.dev/)
 [![Contributor: Chen Liu](https://img.shields.io/badge/Contributor-Chen%20Liu-4a86cf)](https://chenliu-1996.github.io/)
 
 [English](./README.md) | 中文
+
+</div>
+
 
 导师尽职调查，不靠“感觉流”。
 
