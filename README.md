@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" width="512">
+<img src="assets/logo.png" width="400">
 <h1>AdvisorAndMe</h1>
 
 [![Contributor: Shan Chen](https://img.shields.io/badge/Contributor-Shan%20Chen-2ea44f)](https://shanchen.dev/)
