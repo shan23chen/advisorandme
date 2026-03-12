@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/logo.png" width="400">
+<img src="assets/logo.png" width="500">
 <h1>AdvisorAndMe</h1>
 
 [![Contributor: Shan Chen](https://img.shields.io/badge/Contributor-Shan%20Chen-2ea44f)](https://shanchen.dev/)
@@ -9,6 +9,7 @@
 English | [中文](./README.zh.md) 
 
 </div>
+
 
 Advisor due diligence, not vibes-only.
 
