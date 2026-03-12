@@ -1,8 +1,14 @@
-# AdvisorAndMe
+<div align="center">
+
+<img src="assets/logo.png" width="512">
+<h1>AdvisorAndMe</h1>
+
 [![Contributor: Shan Chen](https://img.shields.io/badge/Contributor-Shan%20Chen-2ea44f)](https://shanchen.dev/)
 [![Contributor: Chen Liu](https://img.shields.io/badge/Contributor-Chen%20Liu-4a86cf)](https://chenliu-1996.github.io/)
 
 English | [中文](./README.zh.md) 
+
+</div>
 
 Advisor due diligence, not vibes-only.
 
